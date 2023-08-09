@@ -26,15 +26,15 @@ solution "Yojimbo"
     configuration "Release"
         optimize "Speed"
         defines { "YOJIMBO_RELEASE", "NETCODE_RELEASE", "RELIABLE_RELEASE" }
-        
+		
+basetargetdir = "bin"
+baseobjdir = "obj"
+
+include "yojimbo.lua"
+
 project "test"
     files { "test.cpp" }
     links { "yojimbo" }
-
-project "yojimbo"
-    kind "StaticLib"
-    defines { "NETCODE_ENABLE_TESTS=1", "RELIABLE_ENABLE_TESTS=1" }
-    files { "yojimbo.h", "yojimbo.cpp", "certs.h", "certs.c", "tlsf/tlsf.h", "tlsf/tlsf.c", "netcode.io/netcode.c", "netcode.io/netcode.h", "reliable.io/reliable.c", "reliable.io/reliable.h" }
 
 project "client"
     files { "client.cpp", "shared.h" }
