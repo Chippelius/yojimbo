@@ -6,8 +6,8 @@ project "yojimbo"
     warnings "Extra"
     floatingpoint "Fast"
     vectorextensions "SSE2"
-	targetdir (basetargetdir .. "/%{prj.name}")
-	objdir (baseobjdir .. "/%{prj.name}")
+	targetdir (basetargetdir)
+	objdir (baseobjdir)
 	
     defines { "NETCODE_ENABLE_TESTS=1", "RELIABLE_ENABLE_TESTS=1" }
 	
