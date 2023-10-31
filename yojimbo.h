@@ -154,6 +154,7 @@
 #include <inttypes.h>
 #if YOJIMBO_DEBUG_MESSAGE_LEAKS
 #include <map>
+#include <string>
 #endif // #if YOJIMBO_DEBUG_MESSAGE_LEAKS
 
 // windows =p
@@ -2761,6 +2762,12 @@ namespace yojimbo
          */
 
         const char * ToString( char buffer[], int bufferSize ) const;
+        
+        /**
+            Convert the address to a std::string.
+         */
+
+        std::string ToString() const;
 
         /**
             True if the address is valid.

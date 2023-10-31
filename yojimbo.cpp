@@ -594,6 +594,11 @@ namespace yojimbo
         }
     }
 
+    std::string Address::ToString() const {
+        char buffer[MaxAddressLength];
+        return std::string(ToString(buffer, MaxAddressLength));
+    }
+
     bool Address::IsValid() const
     {
         return m_type != ADDRESS_NONE;
