@@ -3915,10 +3915,13 @@ namespace yojimbo
         return netcode_server_client_id( m_server, clientIndex );
     }
 
-    netcode_address_t * Server::GetClientAddress( int clientIndex ) const
-    {
-        return netcode_server_client_address( m_server, clientIndex );
-    }
+	Address Server::GetClientAddress(int clientIndex) const
+	{
+		char buffer[MaxAddressLength];
+		return Address(netcode_address_to_string(
+			netcode_server_client_address(m_server, clientIndex),
+			buffer));
+	}
 
     int Server::GetNumConnectedClients() const
     {

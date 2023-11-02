@@ -5231,7 +5231,7 @@ namespace yojimbo
             @returns The address of the client.
          */
 
-        virtual netcode_address_t * GetClientAddress( int clientIndex ) const = 0;
+        virtual Address GetClientAddress( int clientIndex ) const = 0;
 
         /** 
             Get the number of clients that are currently connected to the server.
@@ -5500,7 +5500,7 @@ namespace yojimbo
 
         uint64_t GetClientId( int clientIndex ) const;
 
-        netcode_address_t * GetClientAddress( int clientIndex ) const;
+        Address GetClientAddress( int clientIndex ) const;
 
         int GetNumConnectedClients() const;
 
@@ -5779,9 +5779,6 @@ namespace yojimbo
 
         ~BaseClient();
 
-        BaseClient(BaseClient&& other) = default;
-        BaseClient& operator = (BaseClient&& other) = default;
-
         void SetContext( void * context ) { yojimbo_assert( IsDisconnected() ); m_context = context; }
 
         void Disconnect();
@@ -5909,9 +5906,6 @@ namespace yojimbo
         explicit Client( Allocator & allocator, const Address & address, const ClientServerConfig & config, Adapter & adapter, double time );
 
         ~Client();
-
-        Client(Client&& other) = default;
-        Client& operator=(Client&& other) = default;
 
         void InsecureConnect( const uint8_t privateKey[], uint64_t clientId, const Address & address );
 
