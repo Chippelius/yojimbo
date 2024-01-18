@@ -152,9 +152,9 @@
 #include <memory.h>
 #include <math.h>
 #include <inttypes.h>
+#include <string>
 #if YOJIMBO_DEBUG_MESSAGE_LEAKS
 #include <map>
-#include <string>
 #endif // #if YOJIMBO_DEBUG_MESSAGE_LEAKS
 
 // windows =p
